@@ -1,0 +1,20 @@
+yarn add express -D
+O -D é para instalar dependencias que serão usadas somente na fase de desenvolvimento, na produção ele não será empregado.
+
+Criar script no package.json.
+
+portquiz.net:porta - verifica se a porta está bloqueada port proxy
+
+//metodos index, show, store, update, destroy de controller
+index() - retorna uma listagem de sessões
+show() - retorna apenas uma sessão
+store() - cria um sessão
+update() - altera um sessão
+destroy() - remover uma sessão
+
+const email = req.body.email
+desestruturação
+const {email} = req.body
+
+await e async - quando há na aplicação alguma requisão feita ao banco que demore um pouco, o await server para aguardar a operação ser realizada, para utilizar o await
+é necessario utilizar o assync na função
