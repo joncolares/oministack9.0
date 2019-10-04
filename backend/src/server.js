@@ -1,6 +1,7 @@
 //importando o express
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 //importando as rotas
 const routes = require('./routes');
 
@@ -12,6 +13,7 @@ mongoose.connect('mongodb+srv://joncolares:joncolares@cluster0-tphgh.mongodb.net
     useUnifiedTopology: true
 });
 
+app.use(cors());
 //para a aplicação utilizar json
 app.use(express.json());
 //usando as rotas

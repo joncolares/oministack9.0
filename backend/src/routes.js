@@ -2,9 +2,11 @@
 const express = require('express');
 const multer = require('multer');
 const uploadconfig = require('./config/upload');
+
 const SessionController = require('./controllers/SessionController');
 const SpotController = require('./controllers/SpotController');
 const DashboardController = require('./controllers/DashboardController');
+const ReservaController = require('./controllers/ReservaController');
 
 
 const routes = express.Router();
@@ -23,6 +25,7 @@ routes.get('/spot',SpotController.index);
 routes.post('/spot', upload.single('imagem'),SpotController.store);
 
 routes.get('/dashboard',DashboardController.show);
+routes.post('/spot/:spot_id/reserva',ReservaController.store);
 
 //exportando as routas para as outras aplicações
 module.exports = routes;
