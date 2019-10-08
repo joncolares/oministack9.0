@@ -1,37 +1,19 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './App.css';
-import api from './services/api';
 import logo from './assets/logo.svg';
 
-function App() {
-  const [email, setEmail] = useState('');
+import Routes from './routes';
 
-  async function formsubmit(event){
-    event.preventDefault();
-    const response = await api.post('/sessions', {email:email});
-    console.log(response);
-  }
+function App() {
+  
 
   return (
     <div className="container">
       <img src={logo} alt="AirCnC"/>
       
       <div className="content">
-        <p>
-          Ofereça <strong>spots</strong> para programadores e encontre <strong>talentos</strong> para sua empresa.
-        </p>
-        <form onSubmit = {formsubmit}>
-          <label htmlFor="email">E-MAIL *</label>
-          <input 
-          type="email" 
-          name="email" 
-          id="email" 
-          placeholder="Seu melhor e-mail"
-          value = {email}
-          onChange = {event => setEmail(event.target.value)}/>
-
-          <button className="btn" type="submit">Entrar</button>
-        </form>
+        <Routes/>
+        
       </div>
 
     </div>
