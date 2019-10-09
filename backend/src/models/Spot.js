@@ -10,6 +10,14 @@ const SpotSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     }
+}, {
+    toJSON: {
+        virtuals: true,
+    },
+});
+
+SpotSchema.virtual('imagem_url').get(function(){
+    return `http://localhost:3333/files/${this.imagem}`
 });
 
 //criando e exportando o model do usuário, params(1- o model, 2 - o schema)

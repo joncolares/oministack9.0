@@ -2,6 +2,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const path = require('path');
 //importando as rotas
 const routes = require('./routes');
 
@@ -16,6 +17,8 @@ mongoose.connect('mongodb+srv://joncolares:joncolares@cluster0-tphgh.mongodb.net
 app.use(cors());
 //para a aplicação utilizar json
 app.use(express.json());
+
+app.use('/files', express.static(path.resolve(__dirname, '..', 'uploads')));
 //usando as rotas
 app.use(routes);
 
